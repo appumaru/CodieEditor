@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --body-bg: 255 255 255; /* White */
+  --body-text: 23 23 23; /* Near black */
+  --primary-bg: 0 200 153; /* Teal */
+  --primary-text: 255 255 255; /* White */
+  --secondary-bg: 243 244 246; /* Light gray */
+  --secondary-text: 55 65 81; /* Dark gray */
+  --accent-bg: 236 254 255; /* Very light cyan */
+  --accent-text: 0 180 153; /* Darker teal */
+  --card-bg: 255 255 255; /* White */
+  --card-border: 229 231 235; /* Light gray border */
+  --input-bg: 249 250 251; /* Very light gray */
+  --muted-text: 107 114 128; /* Medium gray */
+}
+
+.dark {
+  --body-bg: 17 24 39; /* Dark slate */
+  --body-text: 229 231 235; /* Light gray */
+  --primary-bg: 0 200 153; /* Keep teal */
+  --primary-text: 255 255 255; /* White */
+  --secondary-bg: 31 41 55; /* Dark blue-gray */
+  --secondary-text: 209 213 219; /* Light gray */
+  --accent-bg: 15 23 42; /* Very dark blue */
+  --accent-text: 14 165 233; /* Sky blue */
+  --card-bg: 24 33 47; /* Dark blue-gray */
+  --card-border: 51 65 85; /* Medium blue-gray */
+  --input-bg: 31 41 55; /* Dark blue-gray */
+  --muted-text: 156 163 175; /* Medium-light gray */
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+.chat-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: hsl(var(--muted)) transparent;
+}
+
+.chat-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.chat-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.chat-scrollbar::-webkit-scrollbar-thumb {
+  background-color: hsl(var(--muted));
+  border-radius: 10px;
+}
+
+.chat-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: hsl(var(--muted), 0.5);
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.typing-dots::after {
+  content: "...";
+  display: inline-block;
+  animation: typing-dots 1.4s infinite;
+  width: 1em;
+  text-align: left;
+}
+
+@keyframes typing-dots {
+  0%, 20% { content: "."; }
+  40% { content: ".."; }
+  60%, 100% { content: "..."; }
+} 
